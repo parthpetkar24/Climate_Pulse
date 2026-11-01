@@ -1,0 +1,71 @@
+{
+  "prediction": {
+    "aqi_value": 91.03,
+    "aqi_category": "Satisfactory"
+  },
+  "shap_explanation": {
+    "base_value": 136.94,
+    "top_features": [
+      {
+        "feature": "pm25",
+        "shap_value": -15.6818,
+        "feature_value": 34.15,
+        "direction": "decreases"
+      },
+      {
+        "feature": "pm10",
+        "shap_value": -13.943,
+        "feature_value": 68.45,
+        "direction": "decreases"
+      },
+      {
+        "feature": "max_pm_proxy",
+        "shap_value": -13.4243,
+        "feature_value": 72.1385,
+        "direction": "decreases"
+      },
+      {
+        "feature": "co",
+        "shap_value": 4.8362,
+        "feature_value": 2.0,
+        "direction": "increases"
+      },
+      {
+        "feature": "pm_sum",
+        "shap_value": -4.2095,
+        "feature_value": 101.0,
+        "direction": "decreases"
+      }
+    ],
+    "narrative": "Predicted AQI: 91.0 (Satisfactory)\n\nKey factors influencing this prediction:\n  1. pm25 = 34.15  →  pulling AQI lower (SHAP contribution: -15.68)\n  2. pm10 = 68.45  →  pulling AQI lower (SHAP contribution: -13.94)\n  3. max_pm_proxy = 72.14  →  pulling AQI lower (SHAP contribution: -13.42)\n\nNote: SHAP values indicate how much each feature influenced the model's prediction. They do not prove that a pollutant directly caused an AQI change — external factors and interactions may also play a role."
+  },
+  "who_evidence": [
+    {
+      "citation": "9789240034433-eng.pdf, p. 1",
+      "score": 0.4592,
+      "text": "Particulate matter (PM2.5 and PM10), \nozone, nitrogen dioxide, sulfur dioxide \nand carbon monoxide\nWHO global \nair quality \nguidelines \nExecutive summary"
+    },
+    {
+      "citation": "9789240034433-eng.pdf, p. 5",
+      "score": 0.1994,
+      "text": "The burden of disease resulting from air pollution also imposes a significant \neconomic burden. As a result, governments worldwide are seeking to improve air \nquality and reduce the public health burden and costs associated with air pollution. Since 1987, WHO has periodically issued health-based air"
+    },
+    {
+      "citation": "9789240034433-eng.pdf, p. 16",
+      "score": 0.1464,
+      "text": "12\nWHO GLOBAL AIR QUALITY GUIDELINES\nThe main objective of these updated global guidelines is to offer health-\nbased air quality guideline levels, expressed as long- or short-term \nconcentrations, for six key air pollutants: PM2.5, PM10, ozone, nitrogen \ndioxide, sulfur dioxide and carbon monoxide. "
+    },
+    {
+      "citation": "9789240034433-eng.pdf, p. 4",
+      "score": 0.1122,
+      "text": "WHO global air quality guidelines. Particulate matter (PM2.5  and  PM10), ozone, nitrogen \ndioxide, sulfur dioxide and carbon monoxide. Executive summary. Geneva: World Health Organization; \n2021. Licence: CC BY-NC-SA 3.0 IGO. Cataloguing-in-Publication (CIP) data. CIP data are available at http://a"
+    },
+    {
+      "citation": "9789240034433-eng.pdf, p. 4",
+      "score": 0.1053,
+      "text": "WHO global air quality guidelines: particulate matter (PM2.5 and PM10), ozone, nitrogen dioxide, sulfur \ndioxide and carbon monoxide. Executive summary\nISBN 978-92-4-003443-3 (electronic version)\nISBN 978-92-4-003442-6 (print version)\n© World Health Organization 2021\nSome rights reserved. This work "
+    }
+  ],
+  "health_explanation": "[Groq API key not configured. Below is the prompt that would be sent to the LLM.]\n\n--- SYSTEM PROMPT ---\nYou are a concise air quality health advisor for ClimatePulse.\nYour role is to explain a predicted AQI value in plain language, using ONLY the\nevidence provided below.\n\nRULES:\n1. State the predicted AQI and its category.\n2. List the 2–3 most influential environmental factors and their effect direction.\n3. Explain health implications using ONLY the WHO evidence provided.\n4. Give practical health advice appropriate to the AQI category.\n5. Cite every health claim with the source document name and page number in\n   parentheses — e.g., (9789240034433-eng.pdf, p. 42).\n6. Do NOT invent facts, citations, causal claims, or numbers not in the evidence.\n7. If the evidence is insufficient for a claim, explicitly say so.\n8. Keep the total explanation under 250 words.\n9. Distinguish feature *influence* from *causation*: say \"associated with\" or\n   \"the model indicates\", not \"caused by\".\n10. WHO guideline values are separate from India's CPCB AQI standards.\n    Do not treat them as interchangeable.\n\n\n--- USER PROMPT ---\n## Prediction Details\n- **Predicted AQI**: 91.0\n- **AQI Category**: Satisfactory\n\n## Top Influential Features (from SHAP analysis)\n- **pm25** = 34.15  (SHAP: -15.68, ↓ pulls AQI lower)\n- **pm10** = 68.45  (SHAP: -13.94, ↓ pulls AQI lower)\n- **max_pm_proxy** = 72.14  (SHAP: -13.42, ↓ pulls AQI lower)\n- **co** = 2.00  (SHAP: +4.84, ↑ pushes AQI higher)\n- **pm_sum** = 101.00  (SHAP: -4.21, ↓ pulls AQI lower)\n\n## Retrieved WHO Evidence\n### Evidence 1  [9789240034433-eng.pdf, p. 1]  (relevance: 0.459)\nParticulate matter (PM2.5 and PM10), \nozone, nitrogen dioxide, sulfur dioxide \nand carbon monoxide\nWHO global \nair quality \nguidelines \nExecutive summary\n\n### Evidence 2  [9789240034433-eng.pdf, p. 5]  (relevance: 0.199)\nThe burden of disease resulting from air pollution also imposes a significant \neconomic burden. As a result, governments worldwide are seeking to improve air \nquality and reduce the public health burden and costs associated with air pollution. Since 1987, WHO has periodically issued health-based air quality guidelines to \nassist governments and civil society to reduce human exposure to air pollution and \nits adverse effects. The WHO air quality guidelines were last published in 2006. Air quality guidelines – global update 2005. Particulate matter, ozone, nitrogen \ndioxide and sulfur dioxide (WHO Regional Office for Europe, 2006) provided \nhealth-based guideline levels for the major health-damaging air pollutants, \nincluding particulate matter (PM)1, ozone (O3), nitrogen dioxide (NO2) and s\n\n### Evidence 3  [9789240034433-eng.pdf, p. 16]  (relevance: 0.146)\n12\nWHO GLOBAL AIR QUALITY GUIDELINES\nThe main objective of these updated global guidelines is to offer health-\nbased air quality guideline levels, expressed as long- or short-term \nconcentrations, for six key air pollutants: PM2.5, PM10, ozone, nitrogen \ndioxide, sulfur dioxide and carbon monoxide. In addition, the guidelines \nprovide interim targets to guide reduction efforts for these pollutants, as \nwell as good practice statements for the management of certain types of \nPM (i.e. black carbon/elemental carbon, ultrafine particles, and particles \noriginating from sand and dust storms). These guidelines are not legally \nbinding standards; however, they provide WHO Member States with an \nevidence-informed tool they can use to inform legislation and policy. Ultimately, the goal of these gui\n\n### Evidence 4  [9789240034433-eng.pdf, p. 4]  (relevance: 0.112)\nWHO global air quality guidelines. Particulate matter (PM2.5  and  PM10), ozone, nitrogen \ndioxide, sulfur dioxide and carbon monoxide. Executive summary. Geneva: World Health Organization; \n2021. Licence: CC BY-NC-SA 3.0 IGO. Cataloguing-in-Publication (CIP) data. CIP data are available at http://apps.who.int/iris. Sales, rights and licensing. To purchase WHO publications, see http://apps.who.int/bookorders. To submit \nrequests for commercial use and queries on rights and licensing, see http://www.who.int/about/licensing. Third-party materials. If you wish to reuse material from this work that is attributed to a third party, such \nas tables, figures or images, it is your responsibility to determine whether permission is needed for that \nreuse and to obtain permission from the copyright ho\n\n### Evidence 5  [9789240034433-eng.pdf, p. 4]  (relevance: 0.105)\nWHO global air quality guidelines: particulate matter (PM2.5 and PM10), ozone, nitrogen dioxide, sulfur \ndioxide and carbon monoxide. Executive summary\nISBN 978-92-4-003443-3 (electronic version)\nISBN 978-92-4-003442-6 (print version)\n© World Health Organization 2021\nSome rights reserved. This work is available under the Creative Commons Attribution-NonCommercial-\nShareAlike 3.0 IGO licence (CC BY-NC-SA 3.0 IGO ; https://creativecommons.org/licenses/by-nc-sa/3.0/igo). Under the terms of this licence, you may copy, redistribute and adapt the work for non-commercial purposes, \nprovided the work is appropriately cited, as indicated below. In any use of this work, there should be no \nsuggestion that WHO endorses any specific organization, products or services. The use of the WHO logo \nis not p\n\n---\nGenerate a short, cited health explanation based on the above.\n",
+  "groq_api_called": false
+}
