@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Climate Risk & Adaptation Simulator (MVP)
 
 Simplified, transparent scenario model: pick interventions (farm ponds, traffic restrictions, green cover),
@@ -46,3 +47,6 @@ Please double-check the official figures against current MoEFCC/CPCB publication
 Annual timestep, deterministic, no feedbacks/spatial/seasonal effects, annual-mean AQI, local area scored
 against national goals, default baseline green cover (25%) is only an approximate national-scale figure.
 See `meta.assumptions` in every response.
+=======
+# Climate_Pulse
+>>>>>>> b22714b115c4446aa3b7414e39e9e14943261183
