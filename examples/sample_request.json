@@ -1,0 +1,12 @@
+{
+  "baseline": {"temperature_c": 28.0, "ndvi": 0.30, "aqi": 180, "green_cover_pct": 22,
+               "warming_rate_c_per_year": 0.03, "ndvi_trend_per_year": -0.002, "aqi_trend_pct_per_year": 1.0},
+  "interventions": [
+    {"type": "farm_ponds", "intensity": 2},
+    {"type": "traffic_restrictions", "intensity": 25},
+    {"type": "green_cover", "intensity": 6}
+  ],
+  "duration_years": 10,
+  "start_year": 2026,
+  "area_km2": 100
+}

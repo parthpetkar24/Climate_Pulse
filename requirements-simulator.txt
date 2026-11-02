@@ -1,0 +1,5 @@
+fastapi>=0.100
+pydantic>=2.0
+pytest>=7
+httpx>=0.24   # needed by fastapi TestClient
+uvicorn>=0.23 # only for demo_app.py
