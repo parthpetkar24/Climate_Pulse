@@ -1,0 +1,17 @@
+Category,Fuel_or_Vehicle_Type,Unit,CO2_Factor_kg,CH4_Factor_g,N2O_Factor_g
+Stationary,Anthracite Coal,short ton,2602.0,276.0,40.0
+Stationary,Bituminous Coal,short ton,2325.0,274.0,40.0
+Stationary,Sub-bituminous Coal,short ton,1676.0,190.0,28.0
+Stationary,Lignite Coal,short ton,1389.0,156.0,23.0
+Stationary,Natural Gas,scf,0.05444,0.00103,0.0001
+Stationary,Propane Gas,scf,0.15463,0.007548,0.00151
+Stationary,Distillate Fuel Oil No. 2,gallon,10.21,0.41,0.08
+Stationary,Residual Fuel Oil No. 6,gallon,11.27,0.45,0.09
+Stationary,Biodiesel (100%),gallon,9.45,0.14,0.01
+Stationary,Ethanol (100%),gallon,5.75,0.09,0.01
+Mobile_Scope3,Passenger Car,vehicle-mile,0.297,0.0059,0.0053
+Mobile_Scope3,Light-Duty Truck,vehicle-mile,0.394,0.0109,0.0088
+Mobile_Scope3,Bus,passenger-mile,0.066,0.0046,0.0019
+Mobile_Scope3,Air Travel - Short Haul (< 300 mi),passenger-mile,0.207,0.0064,0.0066
+Mobile_Scope3,Air Travel - Medium Haul,passenger-mile,0.129,0.0006,0.0041
+Mobile_Scope3,Air Travel - Long Haul,passenger-mile,0.163,0.0006,0.0052

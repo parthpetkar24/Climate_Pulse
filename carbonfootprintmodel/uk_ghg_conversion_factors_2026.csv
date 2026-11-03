@@ -1,0 +1,28 @@
+Section,Activity,Detail/Fuel/Type,Unit,Year/Class,kg CO2e,kg CO2e of CO2 per unit,kg CO2e of CH4 per unit,kg CO2e of N2O per unit
+Fuels,Gaseous fuels,Butane,tonnes,,3033.38067,3029.26,2.52,1.60067
+Fuels,Gaseous fuels,Butane,litres,,1.74533,1.74296,0.00144,0.00092
+Fuels,Gaseous fuels,Butane,kWh (Net CV),,0.24107,0.24074,0.0002,0.00012
+Fuels,Gaseous fuels,Butane,kWh (Gross CV),,0.22241,0.2221,0.00019,0.00012
+Fuels,Gaseous fuels,CNG,tonnes,,2507.72441,2502.68,3.8528,1.19161
+Fuels,Gaseous fuels,Natural gas,tonnes,,2507.72441,2502.68,3.8528,1.19161
+Fuels,Gaseous fuels,Natural gas,cubic metres,,2.02633,2.02231,0.00307,0.00095
+Fuels,Gaseous fuels,Natural gas,kWh (Gross CV),,0.18231,0.18194,0.00028,0.00009
+Fuels,Liquid fuels,Diesel (average biofuel blend),tonnes,,3104.16462,3064.93,0.3472,38.88742
+Fuels,Liquid fuels,Diesel (average biofuel blend),litres,,2.58354,2.55035,0.00029,0.0329
+Fuels,Liquid fuels,Diesel (100% mineral diesel),litres,,2.66155,2.62818,0.00029,0.03308
+Fuels,Liquid fuels,Petrol (average biofuel blend),litres,,2.075,2.06107,0.00806,0.00587
+Fuels,Liquid fuels,Petrol (100% mineral petrol),litres,,2.35372,2.33955,0.0082,0.00597
+Electricity,Electricity generated,Electricity: UK,kWh,2026,0.13096,0.12943,0.00067,0.00086
+Electricity,T&D- UK electricity,Electricity: UK,kWh,2026,0.01299,0.01284,0.00007,0.00009
+Passenger vehicles,Cars (by size),Small car,km,Diesel,0.14327,0.14159,0.0000046,0.00167
+Passenger vehicles,Cars (by size),Small car,km,Petrol,0.14257,0.14189,0.00036,0.00032
+Passenger vehicles,Cars (by size),Medium car,km,Diesel,0.17209,0.17041,0.0000046,0.00167
+Passenger vehicles,Cars (by size),Medium car,km,Petrol,0.17411,0.17343,0.00036,0.00032
+Passenger vehicles,Cars (by size),Average car,km,Diesel,0.17265,0.17097,0.0000046,0.00167
+Passenger vehicles,Cars (by size),Average car,km,Petrol,0.16152,0.16084,0.00036,0.00032
+Passenger vehicles,Cars (by size),Average car,km,Battery Electric Vehicle,0,0,0,0
+Business travel- land,Rail,National rail,passenger.km,,0.03092,0.03056,0.00008,0.00028
+Business travel- land,Rail,London Underground,passenger.km,,0.01549,0.01522,0.00011,0.00016
+Homeworking,Office Equipment,,per FTE Working Hour,,0.02159,,,
+Homeworking,Heating,,per FTE Working Hour,,0.30234,,,
+Homeworking,Total,,per FTE Working Hour,,0.32393,,,
