@@ -1,0 +1,135 @@
+Climate_Pulse / hyperlocal_forecaster — Data Quality Report
+Generated : 2026-11-03 00:52:35
+======================================================================
+======================================================================
+  Daily AQI — all_stations_combined.csv
+======================================================================
+  Source file    : all_stations_combined.csv
+  Raw rows×cols  : 3751 × 18
+  Clean rows×cols: 3751 × 20
+  Duplicates removed       : 0
+  All-zero rows flagged    : 0
+  Out-of-range flags       : {'pm25': 34, 'pm10': 4, 'so2': 12, 'o3': 5}
+
+  Missing values (measurement cols):
+    pm25                :  1738 (46.3%)
+    pm10                :  2412 (64.3%)
+    no2                 :  1819 (48.5%)
+    so2                 :  2458 (65.5%)
+    o3                  :  2556 (68.1%)
+    co                  :  2556 (68.1%)
+    aqi                 :  1344 (35.8%)
+
+======================================================================
+  Daily AQI — station_1_Revenue_Colony-Shivajinagar_Pu.csv
+======================================================================
+  Source file    : station_1_Revenue_Colony-Shivajinagar_Pu.csv
+  Raw rows×cols  : 947 × 18
+  Clean rows×cols: 947 × 20
+  Duplicates removed       : 0
+  All-zero rows flagged    : 0
+  Out-of-range flags       : {'o3': 3}
+
+  Missing values (measurement cols):
+    pm25                :   586 (61.9%)
+    pm10                :   586 (61.9%)
+    no2                 :   653 (69.0%)
+    so2                 :   676 (71.4%)
+    o3                  :   654 (69.1%)
+    co                  :   654 (69.1%)
+    aqi                 :   292 (30.8%)
+
+======================================================================
+  Daily AQI — station_2_Savitribai_Phule_Pune_Universi.csv
+======================================================================
+  Source file    : station_2_Savitribai_Phule_Pune_Universi.csv
+  Raw rows×cols  : 343 × 18
+  Clean rows×cols: 343 × 20
+  Duplicates removed       : 0
+  All-zero rows flagged    : 0
+  Out-of-range flags       : {'so2': 1}
+
+  Missing values (measurement cols):
+    pm25                :    44 (12.8%)
+    pm10                :    41 (12.0%)
+    no2                 :    64 (18.7%)
+    so2                 :    65 (19.0%)
+    o3                  :   179 (52.2%)
+    co                  :   179 (52.2%)
+    aqi                 :    41 (12.0%)
+
+======================================================================
+  Daily AQI — station_3_Karve_Road_Pune_Pune_-_MPCB.csv
+======================================================================
+  Source file    : station_3_Karve_Road_Pune_Pune_-_MPCB.csv
+  Raw rows×cols  : 1772 × 18
+  Clean rows×cols: 1772 × 20
+  Duplicates removed       : 0
+  All-zero rows flagged    : 0
+  Out-of-range flags       : {'pm25': 33, 'pm10': 1, 'o3': 2}
+
+  Missing values (measurement cols):
+    pm25                :  1071 (60.4%)
+    pm10                :  1748 (98.6%)
+    no2                 :  1065 (60.1%)
+    so2                 :  1680 (94.8%)
+    o3                  :  1681 (94.9%)
+    co                  :  1681 (94.9%)
+    aqi                 :   974 (55.0%)
+
+======================================================================
+  Daily AQI — station_4_Katraj_Dairy_Pune_-_MPCB.csv
+======================================================================
+  Source file    : station_4_Katraj_Dairy_Pune_-_MPCB.csv
+  Raw rows×cols  : 344 × 18
+  Clean rows×cols: 344 × 20
+  Duplicates removed       : 0
+  All-zero rows flagged    : 0
+  Out-of-range flags       : {'pm25': 1, 'pm10': 2, 'so2': 11}
+
+  Missing values (measurement cols):
+    pm25                :    24 (7.0%)
+    pm10                :    24 (7.0%)
+    no2                 :    24 (7.0%)
+    so2                 :    24 (7.0%)
+    o3                  :    26 (7.6%)
+    co                  :    26 (7.6%)
+    aqi                 :    24 (7.0%)
+
+======================================================================
+  Daily AQI — station_5_Park_Street_Wakad_Pimpri_Chinc.csv
+======================================================================
+  Source file    : station_5_Park_Street_Wakad_Pimpri_Chinc.csv
+  Raw rows×cols  : 345 × 18
+  Clean rows×cols: 345 × 20
+  Duplicates removed       : 0
+  All-zero rows flagged    : 0
+  Out-of-range flags       : {'pm10': 1}
+
+  Missing values (measurement cols):
+    pm25                :    13 (3.8%)
+    pm10                :    13 (3.8%)
+    no2                 :    13 (3.8%)
+    so2                 :    13 (3.8%)
+    o3                  :    16 (4.6%)
+    co                  :    16 (4.6%)
+    aqi                 :    13 (3.8%)
+
+======================================================================
+  Daily AQI — city_averaged.csv
+======================================================================
+  Source file    : city_averaged.csv
+  Raw rows×cols  : 2022 × 16
+  Clean rows×cols: 2022 × 18
+  Duplicates removed       : 0
+  All-zero rows flagged    : 0
+  Out-of-range flags       : {'pm25': 17, 'pm10': 2, 'so2': 8}
+
+  Missing values (measurement cols):
+    pm25                :   798 (39.5%)
+    pm10                :  1327 (65.6%)
+    no2                 :   981 (48.5%)
+    so2                 :  1688 (83.5%)
+    o3                  :  1689 (83.5%)
+    co                  :  1689 (83.5%)
+    aqi                 :   792 (39.2%)
