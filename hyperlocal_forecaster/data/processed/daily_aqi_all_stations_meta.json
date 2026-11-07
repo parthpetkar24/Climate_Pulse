@@ -1,0 +1,39 @@
+{
+  "source_file": "C:\\Varad\\Group projects\\Climate_Pulse\\hyperlocal_forecaster\\data\\cleaned\\daily_aqi_all_stations_cleaned.csv",
+  "rows_total": 3751,
+  "rows_train": 2628,
+  "rows_val": 561,
+  "rows_test": 562,
+  "target_col": "aqi",
+  "lookback": 14,
+  "horizon": 7,
+  "scaler_type": "standard",
+  "feature_cols": [
+    "pm25",
+    "pm10",
+    "no2",
+    "so2",
+    "o3",
+    "co",
+    "aqi"
+  ],
+  "split_strategy": "global_date_cutoff",
+  "train_ratio": 0.7,
+  "val_ratio": 0.15,
+  "date_range": [
+    "2018-03-09 00:00:00",
+    "2026-01-28 00:00:00"
+  ],
+  "train_date_range": [
+    "2018-03-09 00:00:00",
+    "2025-04-28 00:00:00"
+  ],
+  "val_date_range": [
+    "2025-04-29 00:00:00",
+    "2025-09-09 00:00:00"
+  ],
+  "test_date_range": [
+    "2025-09-10 00:00:00",
+    "2026-01-28 00:00:00"
+  ]
+}
