@@ -1,0 +1,316 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Climate Pulse — Global Design System
+   Palette: Sage Green + Warm Ivory
+   ═══════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* ── Design Tokens ─────────────────────────────────────────────── */
+:root {
+  /* Sage Green Scale */
+  --sage-50:  #f4f7f4;
+  --sage-100: #e4ece4;
+  --sage-200: #c9d9c9;
+  --sage-300: #a3bfa3;
+  --sage-400: #7da37d;
+  --sage-500: #5e8a5e;
+  --sage-600: #4a6f4a;
+  --sage-700: #3d5a3d;
+  --sage-800: #334833;
+  --sage-900: #2b3c2b;
+  --sage-950: #141f14;
+
+  /* Warm Ivory Scale */
+  --ivory-50:  #fefdfb;
+  --ivory-100: #fdf9f0;
+  --ivory-200: #faf2e0;
+  --ivory-300: #f5e6c8;
+  --ivory-400: #edd5a3;
+  --ivory-500: #e3c07a;
+  --ivory-600: #d4a54e;
+  --ivory-700: #b88a3a;
+  --ivory-800: #966e30;
+  --ivory-900: #7a5a2a;
+  --ivory-950: #422e14;
+
+  /* Accent & Status Colors */
+  --accent-teal:    #5ba3a3;
+  --accent-rose:    #c47a7a;
+  --accent-amber:   #c4a65a;
+  --accent-sky:     #7aaec4;
+
+  --status-good:       #5e8a5e;
+  --status-satisfactory:#7da37d;
+  --status-moderate:   #c4a65a;
+  --status-poor:       #c48a5a;
+  --status-very-poor:  #c47a7a;
+  --status-severe:     #8a3d3d;
+
+  /* Surfaces */
+  --bg-primary:     #fefdfb;
+  --bg-secondary:   #faf7f0;
+  --bg-tertiary:    #f4f1ea;
+  --bg-card:        #ffffff;
+  --bg-card-hover:  #fefdfb;
+  --bg-dark:        #1a2418;
+  --bg-dark-card:   #243022;
+
+  /* Text */
+  --text-primary:   #2b3c2b;
+  --text-secondary: #5a6b5a;
+  --text-tertiary:  #8a9a8a;
+  --text-on-dark:   #f4f7f4;
+  --text-on-dark-muted: #a3bfa3;
+
+  /* Borders & Shadows */
+  --border-light:   #e4ece4;
+  --border-medium:  #c9d9c9;
+  --shadow-xs:      0 1px 2px rgba(43, 60, 43, 0.04);
+  --shadow-sm:      0 2px 8px rgba(43, 60, 43, 0.06);
+  --shadow-md:      0 4px 16px rgba(43, 60, 43, 0.08);
+  --shadow-lg:      0 8px 32px rgba(43, 60, 43, 0.10);
+  --shadow-xl:      0 16px 48px rgba(43, 60, 43, 0.12);
+  --shadow-glow:    0 0 40px rgba(94, 138, 94, 0.15);
+
+  /* Typography */
+  --font-sans:  'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  /* Spacing */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Radius */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+/* ── Reset & Base ──────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--sage-600);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+a:hover {
+  color: var(--sage-800);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ── Scrollbar ─────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--sage-300);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sage-400);
+}
+
+/* ── Selection ─────────────────────────────────────────────────── */
+::selection {
+  background: var(--sage-200);
+  color: var(--sage-900);
+}
+
+/* ── Keyframe Animations ───────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(94, 138, 94, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(94, 138, 94, 0.25);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.7; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Utility Classes ───────────────────────────────────────────── */
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s var(--ease-out) both;
+}
+.animate-fade-in {
+  animation: fadeIn 0.6s var(--ease-out) both;
+}
+.animate-slide-left {
+  animation: slideInLeft 0.6s var(--ease-out) both;
+}
+.animate-slide-right {
+  animation: slideInRight 0.6s var(--ease-out) both;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.container-wide {
+  max-width: 1400px;
+}
+
+/* ── Glass Effect ──────────────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(26, 36, 24, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(94, 138, 94, 0.15);
+}
+
+/* ── Grain Texture Overlay ─────────────────────────────────────── */
+.grain-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

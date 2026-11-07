@@ -1,0 +1,383 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Explainability Page Styles
+   ═══════════════════════════════════════════════════════════════════ */
+
+.explain__header {
+  padding: 7rem 0 2rem;
+  background: linear-gradient(180deg, var(--sage-50), var(--bg-primary));
+}
+
+.explain__title {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  margin: var(--space-sm) 0 var(--space-xs);
+}
+
+.explain__subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 560px;
+}
+
+.explain__body {
+  padding-bottom: var(--space-3xl);
+}
+
+.explain__body > * {
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Tooltip ───────────────────────────────────────────────────── */
+.explain-tooltip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.8rem;
+  box-shadow: var(--shadow-md);
+  font-size: 0.8rem;
+}
+.explain-tooltip p { margin: 2px 0; }
+
+/* ── Intro Section ─────────────────────────────────────────────── */
+.explain-intro {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.explain-intro__content h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.explain-intro__content > p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+
+.explain-intro__points {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.explain-intro__point {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.explain-intro__point-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.explain-intro__point strong {
+  display: block;
+  font-size: 0.88rem;
+}
+
+.explain-intro__point span {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+}
+
+/* Formula visual */
+.explain-intro__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explain-intro__formula {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  width: 100%;
+}
+
+.explain-intro__formula-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.explain-intro__equation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.explain-intro__eq-part {
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.explain-intro__eq-base {
+  background: var(--sage-100);
+  color: var(--sage-700);
+}
+
+.explain-intro__eq-shap {
+  background: rgba(91, 163, 163, 0.1);
+  color: var(--accent-teal);
+}
+
+.explain-intro__eq-result {
+  background: rgba(196, 166, 90, 0.1);
+  color: var(--accent-amber);
+}
+
+.explain-intro__eq-op {
+  font-size: 1.2rem;
+  color: var(--text-tertiary);
+  font-weight: 300;
+}
+
+.explain-intro__equation-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.explain-intro__equation-detail span:nth-child(2),
+.explain-intro__equation-detail span:nth-child(4) {
+  color: var(--text-tertiary);
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+/* ── Chart Cards ───────────────────────────────────────────────── */
+.explain-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-xs);
+}
+
+.explain-card__header {
+  margin-bottom: var(--space-lg);
+}
+
+.explain-card__header h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--sage-700);
+  margin-bottom: 4px;
+}
+
+.explain-card__header p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* ── Waterfall Chart ───────────────────────────────────────────── */
+.waterfall-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.waterfall-base,
+.waterfall-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.9rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+}
+
+.waterfall-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.waterfall-val {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.waterfall-val--result {
+  color: var(--accent-amber);
+}
+
+.waterfall-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 60px;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.4rem 0;
+}
+
+.waterfall-feature {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.waterfall-bar-wrap {
+  height: 24px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+.waterfall-bar {
+  height: 100%;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  transition: width 0.8s var(--ease-out);
+}
+
+.waterfall-bar--up {
+  background: linear-gradient(90deg, rgba(196, 122, 122, 0.2), rgba(196, 122, 122, 0.4));
+}
+
+.waterfall-bar--down {
+  background: linear-gradient(90deg, rgba(91, 163, 163, 0.2), rgba(91, 163, 163, 0.4));
+}
+
+.waterfall-bar__val {
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.waterfall-row--up .waterfall-bar__val { color: var(--accent-rose); }
+.waterfall-row--down .waterfall-bar__val { color: var(--accent-teal); }
+
+.waterfall-fval {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  text-align: right;
+}
+
+/* ── Audit Section ─────────────────────────────────────────────── */
+.audit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.audit-item {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.audit-item__icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.audit-item--pass .audit-item__icon {
+  background: var(--sage-100);
+  color: var(--sage-600);
+}
+
+.audit-item--info .audit-item__icon {
+  background: rgba(196, 166, 90, 0.1);
+  color: var(--accent-amber);
+}
+
+.audit-item strong {
+  display: block;
+  font-size: 0.88rem;
+  margin-bottom: 2px;
+}
+
+.audit-item p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ── Disclaimer ────────────────────────────────────────────────── */
+.explain-disclaimer {
+  display: flex;
+  gap: var(--space-md);
+  background: rgba(196, 166, 90, 0.06);
+  border: 1px solid rgba(196, 166, 90, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  color: var(--accent-amber);
+}
+
+.explain-disclaimer strong {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.explain-disclaimer p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .explain-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .audit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explain-intro__equation {
+    flex-wrap: wrap;
+  }
+
+  .waterfall-row {
+    grid-template-columns: 80px 1fr 50px;
+  }
+}

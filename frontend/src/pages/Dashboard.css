@@ -1,0 +1,331 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Dashboard Page Styles
+   ═══════════════════════════════════════════════════════════════════ */
+
+.dashboard__header {
+  padding: 7rem 0 2rem;
+  background: linear-gradient(180deg, var(--sage-50), var(--bg-primary));
+}
+
+.dashboard__top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.dashboard__title {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  margin: var(--space-sm) 0 var(--space-xs);
+}
+
+.dashboard__subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.dashboard__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sage-600);
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: var(--sage-100);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--sage-200);
+}
+
+.dashboard__body {
+  padding-bottom: var(--space-3xl);
+}
+
+/* ── Summary Row ───────────────────────────────────────────────── */
+.dash-summary {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.dash-aqi-main__inner {
+  background: var(--bg-card);
+  border: 2px solid;
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dash-aqi-main__label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+
+.dash-aqi-main__value {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: var(--space-xs) 0;
+}
+
+.dash-aqi-main__badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  align-self: flex-start;
+}
+
+.dash-aqi-main__scale {
+  margin-top: auto;
+}
+
+.dash-aqi-main__scale-bar {
+  position: relative;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg,
+    #5e8a5e 0%, #7da37d 20%, #c4a65a 40%,
+    #c48a5a 60%, #c47a7a 80%, #8a3d3d 100%
+  );
+}
+
+.dash-aqi-main__scale-indicator {
+  position: absolute;
+  top: -3px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 3px solid var(--text-primary);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: var(--shadow-sm);
+  transition: left 0.8s var(--ease-out);
+}
+
+.dash-aqi-main__scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+
+.dash-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+.dash-stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.dash-stat-card__icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sage-100);
+  color: var(--sage-600);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.dash-stat-card__label {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.dash-stat-card__value {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.dash-stat-card__change {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.dash-stat-card__change--up { color: var(--accent-rose); }
+.dash-stat-card__change--down { color: var(--sage-500); }
+
+/* ── Chart Cards ───────────────────────────────────────────────── */
+.dash-charts-row {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.dash-chart-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-xs);
+}
+
+.dash-chart-card--full {
+  grid-column: 1 / -1;
+}
+
+.dash-chart-card__title {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+/* ── Custom Tooltip ────────────────────────────────────────────── */
+.dash-tooltip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.9rem;
+  box-shadow: var(--shadow-md);
+  font-size: 0.82rem;
+}
+
+.dash-tooltip__label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.dash-tooltip p {
+  margin: 2px 0;
+  color: var(--text-secondary);
+}
+
+/* ── Pollutant Section ─────────────────────────────────────────── */
+.dash-pollutants-section {
+  margin-bottom: var(--space-xl);
+}
+
+.dash-section-title {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.dash-pollutant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+
+.dash-pollutant-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+.dash-pollutant-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+.dash-pollutant-card--over {
+  border-color: rgba(196, 122, 122, 0.4);
+}
+
+.dash-pollutant-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-sm);
+}
+
+.dash-pollutant-card__icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sage-100);
+  color: var(--sage-600);
+  border-radius: var(--radius-sm);
+}
+
+.dash-pollutant-card--over .dash-pollutant-card__icon {
+  background: rgba(196, 122, 122, 0.1);
+  color: var(--accent-rose);
+}
+
+.dash-pollutant-card__name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.dash-pollutant-card__value {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.dash-pollutant-card__value small {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+.dash-pollutant-card__bar-wrap {
+  height: 5px;
+  background: var(--sage-100);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.dash-pollutant-card__bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 1s var(--ease-out);
+}
+
+.dash-pollutant-card__limit {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+}
+
+/* ── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .dash-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+  .dash-charts-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .dash-summary {
+    grid-template-columns: 1fr;
+  }
+}
