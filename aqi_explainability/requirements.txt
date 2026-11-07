@@ -1,0 +1,31 @@
+# ============================================================
+#  requirements.txt — AQI Explainability Pipeline
+#  ClimatePulse | PCCOE Hackathon  —  MVP 1
+# ============================================================
+
+# Core data processing
+numpy>=1.24.0
+pandas>=1.5.0
+
+# Machine Learning
+scikit-learn>=1.2.0
+xgboost>=1.7.0           # Optional but recommended — fallback is Random Forest
+
+# Explainability (XAI)
+shap>=0.42.0
+
+# Visualization
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+# PDF extraction (for WHO knowledge base)
+PyMuPDF>=1.23.0          # imported as 'fitz'
+
+# LLM integration
+groq>=0.4.0              # Groq API client
+
+# Model serialization
+joblib>=1.2.0
+
+# Utilities
+python-dateutil>=2.8.0

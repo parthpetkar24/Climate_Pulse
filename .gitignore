@@ -1,0 +1,61 @@
+# =============================================
+#  .gitignore — Climate_Pulse / PCCOE Hackathon
+# =============================================
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.whl
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Data — raw large files (tracked via gitignore in aqi_explainability/)
+aqi_explainability/data/raw/
+aqi_explainability/data/augmented/
+aqi_explainability/data/preprocessed/
+aqi_explainability/data/cleaned/
+
+# Logs
+*.log
+pipeline_run.log
+
+# IDE / OS
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# Model outputs / artifacts
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.onnx
+*.model
+
+# Env files
+.env
+*.env
+
+# Credentials
+*.pem
+*.key
+secrets.json
