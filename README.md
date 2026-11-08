@@ -1,52 +1,119 @@
-<<<<<<< HEAD
-# Climate Risk & Adaptation Simulator (MVP)
+# ClimatePulse — Unified Climate Intelligence Platform
+**PCCOE Hackathon MVP**
 
-Simplified, transparent scenario model: pick interventions (farm ponds, traffic restrictions, green cover),
-give baseline conditions + duration, get baseline vs intervention trajectories for temperature, NDVI and AQI,
-scored against Indian targets.
+ClimatePulse is an end-to-end climate analytics and decision-support system integrating:
+1. **AQI Prediction & SHAP Explainability** — Machine learning (Random Forest / XGBoost) with local SHAP force decomposition, WHO Guideline retrieval (TF-IDF RAG), and Groq LLM cited health advisory.
+2. **Hyperlocal Forecaster** — 7-day multi-step neural AQI forecasting using stacked LSTMs.
+3. **Climate Risk & Adaptation Simulator** — Policy scenario simulation (farm ponds, traffic restrictions, green cover) with CPCB/NCAP target progress scoring.
+4. **Carbon Footprint Audit Copilot** — Enterprise activity-level emission calculations with unsupervised KMeans risk clustering (Green, Amber, Critical Red).
+5. **Interactive Full-Stack Web App** — Modern React 19 + Vite dashboard with live framer-motion visualizations and REST API connectivity.
 
-> **Not a validated forecast.** Coefficients are illustrative and uncalibrated. No RL / ML is used because
-> there is no training dataset in scope; a fitted model would only disguise invented numbers.
+---
 
-## Run
-```bash
-pip install -r requirements-simulator.txt
-python -m pytest -q                 # 29 tests
-uvicorn demo_app:app --reload       # http://127.0.0.1:8000/docs
+## Architecture Overview
+
+```
+                      ┌─────────────────────────────────────────┐
+                      │        ClimatePulse Frontend (Vite)     │
+                      │   Dashboard | Predict | Explainability  │
+                      └────────────────────┬────────────────────┘
+                                           │ HTTP / Proxy (:5173 -> :8000)
+                                           ▼
+                      ┌─────────────────────────────────────────┐
+                      │    Unified FastAPI Backend (Port 8000)  │
+                      │               backend/main.py           │
+                      └────┬──────────┬──────────┬─────────┬────┘
+                           │          │          │         │
+            ┌──────────────┘          │          │         └──────────────┐
+            ▼                         ▼          ▼                        ▼
+ ┌──────────────────────┐  ┌────────────────┐  ┌──────────────┐  ┌───────────────────┐
+ │   /api/aqi           │  │ /api/forecast  │  │ /api/climate │  │   /api/carbon     │
+ │ • RF / XGBoost Model │  │ • 7-day Stacked│  │   simulator  │  │ • Emission Math   │
+ │ • SHAP TreeExplainer │  │   LSTM Model   │  │ • CPCB / NCAP│  │ • KMeans Clusters │
+ │ • WHO PDF RAG        │  │ • PyTorch /    │  │   Target     │  │ • CSV / Excel /   │
+ │ • Groq LLM Advisory  │  │   extrapolator │  │   Scoring    │  │   PDF Audit Parser│
+ └──────────────────────┘  └────────────────┘  └──────────────┘  └───────────────────┘
 ```
 
-## Endpoints
-| Method | Path | Purpose |
-|---|---|---|
-| GET | `/api/climate-simulator/defaults` | ranges, default coefficients/targets, sources, assumptions, example request |
-| POST | `/api/climate-simulator/simulate` | run simulation |
+---
 
-## Intervention units
-| type | intensity unit | range |
-|---|---|---|
-| farm_ponds | ponds per km² | 0.1–20 |
-| traffic_restrictions | % reduction in vehicle activity | 1–60 |
-| green_cover | percentage points of area newly greened | 0.5–30 |
+## Unified API Endpoints
 
-## Response (for charts)
-`years`, `baseline[]`, `intervention[]`, `intervention_low[]`/`intervention_high[]` (uncertainty band),
-`delta[]`, `summary[]` (per-metric change), `attribution[]` (each intervention alone),
-`scoring` (per-target progress + overall 0–100), `explanations[]`, `meta` (assumptions, coefficients, disclaimer).
+Interactive Swagger UI documentation is available at: **`http://localhost:8000/docs`**
 
-## Targets used
-| id | kind | basis |
-|---|---|---|
-| aqi_cpcb_satisfactory | official | CPCB AQI "Satisfactory" band ≤ 100 |
-| ncap_reduction | official-proxy | NCAP 40% PM10 reduction, applied to AQI vs start year |
-| green_cover_33 | official | National Forest Policy 1988, 33% forest/tree cover |
-| warming_limit | **illustrative** | placeholder 1.5 °C, NOT an official Indian target |
+| Module | Method | Path | Description |
+|---|---|---|---|
+| **System** | `GET` | `/health` | System health, model readiness, and Groq status |
+| **System** | `GET` | `/` | API module directory and status |
+| **AQI Prediction** | `POST` | `/api/aqi/predict` | Predict AQI with local SHAP & WHO cited evidence |
+| **Explainability** | `GET` | `/api/aqi/explainability/global` | Global feature importance across 25 features |
+| **Forecasting** | `POST` | `/api/forecast/7day` | 7-day neural multi-step AQI trajectory |
+| **Forecasting** | `GET` | `/api/forecast/latest` | Latest 7-day outlook for Pune |
+| **Simulator** | `GET` | `/api/climate-simulator/defaults` | Baseline parameters, coefficients, and limits |
+| **Simulator** | `POST` | `/api/climate-simulator/simulate` | Run policy interventions over 1–30 years |
+| **Carbon Audit** | `POST` | `/api/carbon/calculate` | Compute emissions and KMeans risk profile |
+| **Carbon Audit** | `POST` | `/api/carbon/upload` | Ingest enterprise emission files (.csv, .xlsx, .pdf) |
+| **Dashboard** | `GET` | `/api/dashboard/overview` | Live regional statistics, trends, pollutant levels |
 
-Please double-check the official figures against current MoEFCC/CPCB publications before relying on them.
+---
 
-## Limitations
-Annual timestep, deterministic, no feedbacks/spatial/seasonal effects, annual-mean AQI, local area scored
-against national goals, default baseline green cover (25%) is only an approximate national-scale figure.
-See `meta.assumptions` in every response.
-=======
-# Climate_Pulse
->>>>>>> b22714b115c4446aa3b7414e39e9e14943261183
+## Quickstart & Deployment Steps
+
+### 1. Setup Virtual Environment & Install Dependencies
+```bash
+# From workspace root:
+cd C:\PCCOE26
+.\climatepulsevenv\Scripts\Activate.ps1
+
+# Install backend dependencies:
+pip install -r Climate_Pulse/backend/requirements.txt
+```
+
+### 2. Launch Backend API Server
+```bash
+cd C:\PCCOE26\Climate_Pulse
+python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+```
+*API is live at: `http://localhost:8000`*  
+*Swagger Documentation: `http://localhost:8000/docs`*
+
+### 3. Launch Frontend Client
+```bash
+cd C:\PCCOE26\Climate_Pulse\frontend
+npm install
+npm run dev
+```
+*Frontend is live at: `http://localhost:5173`*
+
+---
+
+## Teammate Models & Training Instructions
+
+If any teammate model needs to be re-trained or updated:
+
+1. **AQI Explainability Model**:
+   ```bash
+   cd C:\PCCOE26\Climate_Pulse\aqi_explainability
+   python run_all.py
+   ```
+   *Generates `models/best_aqi_model.joblib`, `models/background_sample.joblib`, and SHAP plots.*
+
+2. **Hyperlocal Forecaster (LSTM)**:
+   ```bash
+   cd C:\PCCOE26\Climate_Pulse\hyperlocal_forecaster
+   python -m model.train
+   ```
+   *Trains the PyTorch model and writes `outputs/best_model.pt` and `outputs/model_config.json`.*
+
+3. **Climate Risk Simulator**:
+   ```bash
+   cd C:\PCCOE26\Climate_Pulse
+   python -m pytest tests/ -q
+   ```
+   *Executes the 29 unit tests covering engine trajectory and scoring rules.*
+
+4. **Carbon Footprint Audit**:
+   ```bash
+   cd C:\PCCOE26\Climate_Pulse\carbonfootprintmodel
+   python carbonfootprint.py
+   ```

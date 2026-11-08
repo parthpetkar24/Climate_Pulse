@@ -5,7 +5,9 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Predict from './pages/Predict';
 import Explainability from './pages/Explainability';
-import About from './pages/About';
+import Forecast from './pages/Forecast';
+import Simulator from './pages/Simulator';
+import Carbon from './pages/Carbon';
 import './App.css';
 
 function App() {
@@ -19,7 +21,9 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/predict" element={<Predict />} />
             <Route path="/explainability" element={<Explainability />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/forecast" element={<Forecast />} />
+            <Route path="/simulator" element={<Simulator />} />
+            <Route path="/carbon" element={<Carbon />} />
           </Routes>
         </main>
         <Footer />

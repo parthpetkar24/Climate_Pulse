@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Wind, Menu, X } from 'lucide-react';
+import { Wind, Menu, X, Sparkles } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -21,9 +21,10 @@ export default function Navbar() {
   const links = [
     { to: '/',               label: 'Home' },
     { to: '/dashboard',      label: 'Dashboard' },
-    { to: '/predict',        label: 'Predict AQI' },
-    { to: '/explainability', label: 'Explainability' },
-    { to: '/about',          label: 'About' },
+    { to: '/predict',        label: 'AQI Predict & XAI' },
+    { to: '/forecast',       label: '7-Day Forecast' },
+    { to: '/simulator',      label: 'Climate Simulator' },
+    { to: '/carbon',         label: 'Carbon Audit' },
   ];
 
   return (
@@ -39,17 +40,20 @@ export default function Navbar() {
         </Link>
 
         <ul className={`navbar__links ${mobileOpen ? 'navbar__links--open' : ''}`}>
-          {links.map(({ to, label }) => (
-            <li key={to}>
-              <Link
-                to={to}
-                className={`navbar__link ${location.pathname === to ? 'navbar__link--active' : ''}`}
-              >
-                {label}
-                {location.pathname === to && <span className="navbar__link-dot" />}
-              </Link>
-            </li>
-          ))}
+          {links.map(({ to, label }) => {
+            const isActive = location.pathname === to;
+            return (
+              <li key={to}>
+                <Link
+                  to={to}
+                  className={`navbar__link ${isActive ? 'navbar__link--active' : ''}`}
+                >
+                  {label}
+                  {isActive && <span className="navbar__link-dot" />}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <button

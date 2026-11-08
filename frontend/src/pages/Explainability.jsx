@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -33,18 +33,18 @@ function Reveal({ children, className = '', delay = 0 }) {
   );
 }
 
-/* ── Mock SHAP data ────────────────────────────────────────────── */
-const globalImportance = [
-  { feature: 'pm25', importance: 42.8, color: '#5e8a5e' },
-  { feature: 'pm10', importance: 28.3, color: '#7da37d' },
-  { feature: 'pm_sum', importance: 12.1, color: '#5ba3a3' },
-  { feature: 'max_pm_proxy', importance: 8.7, color: '#c4a65a' },
-  { feature: 'no2', importance: 6.4, color: '#c48a5a' },
-  { feature: 'pm_ratio', importance: 5.2, color: '#7aaec4' },
-  { feature: 'co', importance: 3.9, color: '#c47a7a' },
-  { feature: 'o3', importance: 3.1, color: '#a3bfa3' },
-  { feature: 'so2', importance: 2.8, color: '#edd5a3' },
-  { feature: 'day_of_year', importance: 1.5, color: '#c9d9c9' },
+/* ── Baseline SHAP data ────────────────────────────────────────── */
+const initialGlobalImportance = [
+  { feature: 'pm25', importance: 16.86, color: '#5e8a5e' },
+  { feature: 'max_pm_proxy', importance: 14.49, color: '#7da37d' },
+  { feature: 'co', importance: 10.88, color: '#5ba3a3' },
+  { feature: 'pm10', importance: 8.18, color: '#c4a65a' },
+  { feature: 'pm_sum', importance: 5.94, color: '#c48a5a' },
+  { feature: 'no2', importance: 3.93, color: '#7aaec4' },
+  { feature: 'o3', importance: 2.09, color: '#c47a7a' },
+  { feature: 'pm_ratio', importance: 1.71, color: '#a3bfa3' },
+  { feature: 'day_of_year', importance: 1.39, color: '#edd5a3' },
+  { feature: 'so2', importance: 1.01, color: '#c9d9c9' },
 ];
 
 const localExplanation = [
@@ -77,6 +77,19 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 export default function Explainability() {
+  const [globalImportance, setGlobalImportance] = useState(initialGlobalImportance);
+
+  useEffect(() => {
+    fetch('/api/aqi/explainability/global')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((res) => {
+        if (res?.features?.length) {
+          setGlobalImportance(res.features);
+        }
+      })
+      .catch((e) => console.log('Using local importance data:', e));
+  }, []);
+
   const fadeUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },

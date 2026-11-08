@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Wind, GitFork, Mail, ExternalLink } from 'lucide-react';
+import { Wind, Activity, Cpu, Shield, Sparkles } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -27,50 +27,45 @@ export default function Footer() {
                 </span>
               </div>
               <p className="footer__desc">
-                An environmental intelligence platform combining multi-source data,
-                machine learning, and AI-powered explanations to deliver actionable insights.
+                Unified environmental intelligence platform combining multi-source sensory data,
+                leakage-audited machine learning, and cited AI explanations for actionable air and climate resilience.
               </p>
-            </div>
-
-            <div className="footer__col">
-              <h4 className="footer__heading">Platform</h4>
-              <ul className="footer__list">
-                <li><Link to="/dashboard">AQI Dashboard</Link></li>
-                <li><Link to="/predict">Predict AQI</Link></li>
-                <li><Link to="/explainability">Explainability</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-              </ul>
-            </div>
-
-            <div className="footer__col">
-              <h4 className="footer__heading">Data Sources</h4>
-              <ul className="footer__list">
-                <li><a href="https://openaq.org" target="_blank" rel="noopener noreferrer">OpenAQ <ExternalLink size={12} /></a></li>
-                <li><a href="https://cpcb.nic.in" target="_blank" rel="noopener noreferrer">CPCB India <ExternalLink size={12} /></a></li>
-                <li><a href="https://power.larc.nasa.gov" target="_blank" rel="noopener noreferrer">NASA POWER <ExternalLink size={12} /></a></li>
-                <li><a href="https://www.who.int" target="_blank" rel="noopener noreferrer">WHO Guidelines <ExternalLink size={12} /></a></li>
-              </ul>
-            </div>
-
-            <div className="footer__col">
-              <h4 className="footer__heading">Team</h4>
-              <ul className="footer__list">
-                <li className="footer__team-name">CodeCrew</li>
-                <li>PCCOE Hackathon 2026</li>
-              </ul>
-              <div className="footer__social">
-                <a href="#" className="footer__social-link" aria-label="GitHub">
-                  <GitFork size={18} />
-                </a>
-                <a href="#" className="footer__social-link" aria-label="Email">
-                  <Mail size={18} />
-                </a>
+              <div className="footer__badge-row">
+                <span className="footer__tech-pill"><Cpu size={12} /> PyTorch & XGBoost</span>
+                <span className="footer__tech-pill"><Sparkles size={12} /> SHAP XAI</span>
+                <span className="footer__tech-pill"><Shield size={12} /> WHO Grounded</span>
               </div>
             </div>
-          </div>
 
-          <div className="footer__bottom">
-            <p>&copy; {new Date().getFullYear()} ClimatePulse by CodeCrew. Built for a better tomorrow.</p>
+            <div className="footer__col">
+              <h4 className="footer__heading">Platform MVPs</h4>
+              <ul className="footer__list">
+                <li><Link to="/predict">MVP 1: AQI Predict & SHAP</Link></li>
+                <li><Link to="/forecast">MVP 2: 7-Day Forecaster</Link></li>
+                <li><Link to="/simulator">MVP 3: Climate Simulator</Link></li>
+                <li><Link to="/carbon">MVP 4: Carbon Audit Copilot</Link></li>
+              </ul>
+            </div>
+
+            <div className="footer__col">
+              <h4 className="footer__heading">Analytics & Tools</h4>
+              <ul className="footer__list">
+                <li><Link to="/dashboard">City Analytics Dashboard</Link></li>
+                <li><Link to="/explainability">Global SHAP Attribution</Link></li>
+                <li><Link to="/predict">Cited Health Advisory</Link></li>
+                <li><Link to="/carbon">Scope 1–3 GHG Accounting</Link></li>
+              </ul>
+            </div>
+
+            <div className="footer__col">
+              <h4 className="footer__heading">Standards & Benchmarks</h4>
+              <ul className="footer__list">
+                <li><span>CPCB National AQI Scale</span></li>
+                <li><span>NCAP 40% Reduction Target</span></li>
+                <li><span>WHO Air Quality Guidelines 2021</span></li>
+                <li><span>GHG Protocol Corporate Standard</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

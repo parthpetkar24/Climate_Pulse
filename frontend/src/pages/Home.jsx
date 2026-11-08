@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import {
   Wind, BarChart3, Brain, ShieldCheck,
   ArrowRight, Leaf, CloudSun, Activity,
-  Gauge, Microscope, Users, Building2
+  Gauge, Microscope, Users, Building2,
+  Cpu, Sliders
 } from 'lucide-react';
 import './Home.css';
 
@@ -40,35 +41,6 @@ function RevealSection({ children, className = '', delay = 0 }) {
       {children}
     </div>
   );
-}
-
-/* ── Animated counter ──────────────────────────────────────────── */
-function Counter({ end, suffix = '', duration = 2000 }) {
-  const ref = useRef(null);
-  const counted = useRef(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !counted.current) {
-        counted.current = true;
-        let start = 0;
-        const startTime = performance.now();
-        const step = (now) => {
-          const progress = Math.min((now - startTime) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.floor(eased * end) + suffix;
-          if (progress < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-      }
-    }, { threshold: 0.5 });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [end, suffix, duration]);
-
-  return <span ref={ref}>0{suffix}</span>;
 }
 
 export default function Home() {
@@ -178,27 +150,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ Stats Bar ═══ */}
-      <section className="stats-bar">
-        <div className="container">
-          <div className="stats-bar__grid">
-            {[
-              { value: 6, suffix: '+', label: 'Pollutants Tracked' },
-              { value: 22, suffix: '', label: 'ML Features' },
-              { value: 95, suffix: '%', label: 'Model Accuracy' },
-              { value: 5, suffix: '', label: 'Data Sources' },
-            ].map((stat, i) => (
-              <div key={i} className="stats-bar__item">
-                <span className="stats-bar__value">
-                  <Counter end={stat.value} suffix={stat.suffix} />
-                </span>
-                <span className="stats-bar__label">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ═══ Problem Section ═══ */}
       <section className="section problem-section">
         <div className="container">
@@ -274,26 +225,38 @@ export default function Home() {
             {[
               {
                 icon: Activity,
-                title: 'Multi-Source Data Fusion',
-                desc: 'Government stations, satellite imagery, and IoT sensors merged into one view.',
+                badge: 'MVP 1',
+                title: 'AQI Predict & SHAP Explainability',
+                desc: 'Leakage-audited XGBoost & Random Forest models with real-time SHAP TreeExplainer and WHO-cited health guidance.',
+                link: '/predict',
+                btnText: 'Predict AQI',
                 color: 'sage',
               },
               {
-                icon: Brain,
-                title: 'Explainable AI',
-                desc: 'SHAP explanations show exactly which pollutants drove each prediction.',
+                icon: Cpu,
+                badge: 'MVP 2',
+                title: 'Hyperlocal 7-Day Neural Forecaster',
+                desc: 'Stacked 2-layer PyTorch LSTM neural network predicting multi-step forward atmospheric trajectories across Pune monitoring stations.',
+                link: '/forecast',
+                btnText: 'View Forecast',
                 color: 'teal',
               },
               {
-                icon: Microscope,
-                title: 'WHO Evidence Retrieval',
-                desc: 'Health explanations grounded in WHO guidelines with proper page citations.',
+                icon: Sliders,
+                badge: 'MVP 3',
+                title: 'Climate Risk & Policy Simulator',
+                desc: 'Multi-year scenario modeling (farm ponds, traffic curbs, urban canopy) scored against CPCB, NCAP 40%, and Forest Policy targets.',
+                link: '/simulator',
+                btnText: 'Run Simulator',
                 color: 'amber',
               },
               {
-                icon: ShieldCheck,
-                title: 'Leakage-Audited Models',
-                desc: 'Temporal train/test splits and automatic leakage detection prevent inflated metrics.',
+                icon: Leaf,
+                badge: 'MVP 4',
+                title: 'Carbon Footprint Audit Copilot',
+                desc: 'Automated Scope 1, 2, and 3 enterprise emissions calculation coupled with unsupervised K-Means ML risk clustering.',
+                link: '/carbon',
+                btnText: 'Audit Footprint',
                 color: 'rose',
               },
             ].map((feat, i) => (
@@ -303,8 +266,12 @@ export default function Home() {
                     <feat.icon size={24} />
                   </div>
                   <div className="solution-card__body">
+                    <span className="solution-card__badge">{feat.badge}</span>
                     <h3>{feat.title}</h3>
                     <p>{feat.desc}</p>
+                    <Link to={feat.link} className="solution-card__link">
+                      {feat.btnText} <ArrowRight size={14} />
+                    </Link>
                   </div>
                   <div className="solution-card__line" />
                 </div>
@@ -433,8 +400,8 @@ export default function Home() {
                     Start Predicting
                     <ArrowRight size={18} />
                   </Link>
-                  <Link to="/about" className="btn btn--ghost btn--lg">
-                    Learn More About Us
+                  <Link to="/forecast" className="btn btn--ghost btn--lg">
+                    Explore 7-Day Forecaster
                   </Link>
                 </div>
               </div>

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import {
   AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend
@@ -10,8 +10,8 @@ import {
 } from 'lucide-react';
 import './Dashboard.css';
 
-/* ── Mock Data ─────────────────────────────────────────────────── */
-const weeklyData = [
+/* ── Initial Fallback Data ─────────────────────────────────────── */
+const initialWeeklyData = [
   { day: 'Mon', aqi: 98, pm25: 42, pm10: 88, no2: 28 },
   { day: 'Tue', aqi: 112, pm25: 55, pm10: 96, no2: 32 },
   { day: 'Wed', aqi: 145, pm25: 72, pm10: 130, no2: 40 },
@@ -21,7 +21,7 @@ const weeklyData = [
   { day: 'Sun', aqi: 76, pm25: 30, pm10: 60, no2: 18 },
 ];
 
-const monthlyTrend = [
+const initialMonthlyTrend = [
   { month: 'Jun', aqi: 68 },
   { month: 'Jul', aqi: 72 },
   { month: 'Aug', aqi: 85 },
@@ -36,7 +36,7 @@ const monthlyTrend = [
   { month: 'May', aqi: 72 },
 ];
 
-const categoryDistribution = [
+const initialCategoryDistribution = [
   { name: 'Good', value: 85, color: '#5e8a5e' },
   { name: 'Satisfactory', value: 120, color: '#7da37d' },
   { name: 'Moderate', value: 95, color: '#c4a65a' },
@@ -45,7 +45,7 @@ const categoryDistribution = [
   { name: 'Severe', value: 7, color: '#8a3d3d' },
 ];
 
-const pollutantBreakdown = [
+const initialPollutants = [
   { name: 'PM2.5', value: 68.4, unit: 'µg/m³', limit: 60, icon: Droplets },
   { name: 'PM10', value: 112.0, unit: 'µg/m³', limit: 100, icon: Wind },
   { name: 'NO₂', value: 34.2, unit: 'ppb', limit: 80, icon: CloudSun },
@@ -79,7 +79,45 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 export default function Dashboard() {
   const [selectedCity] = useState('Pune');
-  const currentAqi = 127;
+  const [currentAqi, setCurrentAqi] = useState(127);
+  const [weeklyData, setWeeklyData] = useState(initialWeeklyData);
+  const [monthlyTrend, setMonthlyTrend] = useState(initialMonthlyTrend);
+  const [categoryDistribution, setCategoryDistribution] = useState(initialCategoryDistribution);
+  const [pollutantBreakdown, setPollutantBreakdown] = useState(initialPollutants);
+  const [weeklyAvg, setWeeklyAvg] = useState('112');
+  const [bestDay, setBestDay] = useState('Sunday');
+
+  useEffect(() => {
+    fetch('/api/dashboard/overview')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((res) => {
+        if (res) {
+          setCurrentAqi(res.current_aqi);
+          setWeeklyAvg(String(res.weekly_avg));
+          setBestDay(res.best_day);
+          if (res.weekly_trend?.length) setWeeklyData(res.weekly_trend);
+          if (res.monthly_trend?.length) setMonthlyTrend(res.monthly_trend);
+          if (res.category_distribution?.length) setCategoryDistribution(res.category_distribution);
+          if (res.pollutant_breakdown?.length) {
+            setPollutantBreakdown(
+              res.pollutant_breakdown.map((p) => ({
+                ...p,
+                icon:
+                  p.name.includes('2.5') || p.name.includes('SO')
+                    ? Droplets
+                    : p.name.includes('10')
+                    ? Wind
+                    : p.name.includes('O₃')
+                    ? Thermometer
+                    : CloudSun,
+              }))
+            );
+          }
+        }
+      })
+      .catch((e) => console.log('Dashboard using local cache:', e));
+  }, []);
+
   const aqiInfo = getAqiInfo(currentAqi);
 
   const fadeUp = {
@@ -140,8 +178,8 @@ export default function Dashboard() {
           </motion.div>
 
           {[
-            { label: 'Weekly Avg', value: '112', change: '+8%', trend: 'up', icon: TrendingUp },
-            { label: 'Best Day', value: '76', change: 'Sunday', trend: 'down', icon: TrendingDown },
+            { label: 'Weekly Avg', value: weeklyAvg, change: '+8%', trend: 'up', icon: TrendingUp },
+            { label: 'Best Day', value: bestDay, change: 'Optimal AQI', trend: 'down', icon: TrendingDown },
             { label: 'Alerts', value: '3', change: 'This week', trend: 'up', icon: AlertTriangle },
           ].map((card, i) => (
             <motion.div

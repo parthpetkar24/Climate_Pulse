@@ -10,7 +10,7 @@ embedding model, or complex infrastructure.
 
 Pipeline
 --------
-1. Extract text from the WHO PDF using PyMuPDF (fitz).
+1. Extract text from the WHO PDF using PyMuPDF (pymupdf).
 2. Split into chunks at natural section boundaries, preserving page metadata.
 3. Build a TF-IDF index over the chunks.
 4. Retrieve the top-k most relevant chunks given a query.
@@ -67,14 +67,17 @@ def _extract_pages(pdf_path: Path) -> list[tuple[int, str]]:
     Returns a list of (page_number_1indexed, page_text).
     """
     try:
-        import fitz  # PyMuPDF
+        import pymupdf
     except ImportError:
-        raise ImportError(
-            "PyMuPDF (fitz) is required for PDF extraction.  "
-            "Install with:  pip install PyMuPDF"
-        )
+        try:
+            import fitz as pymupdf
+        except ImportError:
+            raise ImportError(
+                "PyMuPDF is required for PDF extraction.  "
+                "Install with:  pip install pymupdf"
+            )
 
-    doc = fitz.open(str(pdf_path))
+    doc = pymupdf.open(str(pdf_path))
     pages = []
     for i, page in enumerate(doc):
         text = page.get_text("text")

@@ -1,0 +1,486 @@
+/* ── Simulator Page ──────────────────────────────────────────────── */
+.simulator-page {
+  padding-top: calc(72px + var(--space-2xl));
+  padding-bottom: var(--space-4xl);
+}
+
+.simulator__header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.simulator__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: var(--sage-100);
+  color: var(--sage-700);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.simulator__title {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+
+.simulator__subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Scorecard Hero ──────────────────────────────────────────────── */
+.sim-scorecard {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: var(--space-2xl);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+}
+
+.sim-scorecard__badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--sage-700);
+  margin-bottom: var(--space-sm);
+}
+
+.sim-scorecard__score-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xs);
+}
+
+.sim-scorecard__score-number {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--sage-700);
+  line-height: 1;
+}
+
+.sim-scorecard__score-max {
+  font-size: 1.2rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.sim-scorecard__gain {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(94, 138, 94, 0.12);
+  color: var(--sage-700);
+  margin-left: var(--space-sm);
+}
+
+.sim-scorecard__desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: var(--space-xs);
+}
+
+.sim-scorecard__targets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+.sim-target-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sim-target-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sim-target-item__name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sim-target-item__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+}
+
+.status-met {
+  background: rgba(94, 138, 94, 0.15);
+  color: var(--sage-700);
+}
+
+.status-progress {
+  background: rgba(196, 166, 90, 0.18);
+  color: #8c6c24;
+}
+
+.sim-target-item__bar-track {
+  width: 100%;
+  height: 7px;
+  background: var(--sage-100);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.sim-target-item__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--sage-500), var(--sage-600));
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+
+.sim-target-item__notes {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+/* ── Grid Layout ─────────────────────────────────────────────────── */
+.sim-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 2fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+/* ── Sliders Card ────────────────────────────────────────────────── */
+.sim-controls {
+  padding: var(--space-xl);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.sim-controls__title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.sim-controls__hint {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.sim-slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sim-slider-group__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sim-slider-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sim-slider-val {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--sage-700);
+}
+
+.sim-slider-input {
+  width: 100%;
+  accent-color: var(--sage-600);
+  cursor: pointer;
+  margin: 4px 0;
+}
+
+.sim-slider-sub {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+/* Presets */
+.sim-presets {
+  margin-top: var(--space-xs);
+}
+
+.sim-presets__title {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+  margin-bottom: 6px;
+}
+
+.sim-presets__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sim-preset-btn {
+  padding: 4px 9px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.sim-preset-btn:hover {
+  background: var(--sage-100);
+  color: var(--sage-800);
+  border-color: var(--sage-300);
+}
+
+.sim-run-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+/* ── Trajectory Chart Card ───────────────────────────────────────── */
+.sim-chart-card {
+  padding: var(--space-xl);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+}
+
+.sim-chart-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.sim-chart-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.sim-chart-card__subtitle {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.sim-metric-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-secondary);
+  padding: 3px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.sim-metric-tab {
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.sim-metric-tab--active {
+  background: var(--bg-card);
+  color: var(--sage-700);
+  box-shadow: var(--shadow-xs);
+}
+
+.sim-chart-container {
+  width: 100%;
+  margin-bottom: var(--space-md);
+}
+
+/* Tooltip */
+.sim-tooltip {
+  background: rgba(26, 36, 24, 0.95);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.82rem;
+}
+
+.sim-tooltip__year {
+  display: block;
+  font-weight: 700;
+  color: var(--sage-300);
+  margin-bottom: 4px;
+}
+
+.sim-tooltip__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.baseline-dot { background: #a8a29e; }
+.intervention-dot { background: var(--sage-500); }
+
+.sim-tooltip__diff {
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--sage-300);
+}
+
+/* ── Attribution Breakdown ───────────────────────────────────────── */
+.sim-attribution {
+  border-top: 1px solid var(--border-light);
+  padding-top: var(--space-md);
+  margin-top: auto;
+}
+
+.sim-attribution__heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.sim-attribution__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+}
+
+.sim-attribution__card {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 10px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.sim-attribution__name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sim-attribution__val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--sage-700);
+}
+
+.sim-attribution__cooling {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+/* ── Narrative Box ───────────────────────────────────────────────── */
+.sim-narrative {
+  padding: var(--space-lg) var(--space-xl);
+  border: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+}
+
+.sim-narrative__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.sim-narrative__header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.sim-narrative__list {
+  padding-left: var(--space-lg);
+  margin: 0;
+}
+
+.sim-narrative__list li {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sim-scorecard {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .sim-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
